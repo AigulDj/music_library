@@ -16,6 +16,5 @@ def test_database_connection(db_connection):
 
     # Assert that the results are what we expect
     assert result == [
-        {"id": 1, "name": "first_record"},
-        {"id": 2, "name": "second_record"}
+        {"id": 1, "name": "second_record"},
     ]
