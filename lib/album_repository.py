@@ -8,8 +8,12 @@ class AlbumRepository:
         rows = self.connection.execute('SELECT * FROM albums')
         
         return [
-            Album(row["title"], row["release_year"], row["artist_id"])
+            Album(row["id"], row["title"], row["release_year"], row["artist_id"])
             for row in rows
             ]
 
-
+    def find(self, album_id):
+        rows = self.connection.execute(
+            'SELECT * FROM albums WHERE id = %s', [album_id])
+        row = rows[0]
+        return Album(row["id"], row["title"], row["release_year"], row["artist_id"])

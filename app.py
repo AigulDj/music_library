@@ -23,3 +23,5 @@ albums = album_repository.all()
 
 for album in albums:
     print(album)
+
+print("*******Album Find Method**********\n", album_repository.find(5))
